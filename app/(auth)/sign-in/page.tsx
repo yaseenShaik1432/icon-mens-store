@@ -17,7 +17,7 @@ export default function SignIn() {
       e.preventDefault();
       const response = await axios.post("/api/auth/login", data);
       if (response.status === 200) {
-        router.push("/all-products");
+        router.push("/products");
         toast.success(response?.data?.message);
         localStorage.setItem("userId", response.data.userId);
       }

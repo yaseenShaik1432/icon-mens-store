@@ -1,7 +1,5 @@
-export default function Loading() {
-  return (
-    <div className="h-full flex flex-col items-center justify-center">
-      <p>Loading....</p>
-    </div>
-  );
+import Loader from "../components/common/Loader";
+
+export default function ProductsLoading() {
+  return <Loader />;
 }

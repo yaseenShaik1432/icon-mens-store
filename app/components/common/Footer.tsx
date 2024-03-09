@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 export default function Footer() {
+  const Year = new Date().getFullYear();
   return (
     <footer className="px-4 divide-y bg-gray-800 text-gray-100">
       <div className="container space-x-5 flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
@@ -174,7 +175,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="py-6 text-sm text-center dark:text-gray-400">
-        © 2024 Icon Men's Store. All rights reserved.
+        © {Year} Icon Men's Store. All rights reserved.
       </div>
     </footer>
   );

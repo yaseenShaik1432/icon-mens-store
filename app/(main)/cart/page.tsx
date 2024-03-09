@@ -70,15 +70,15 @@ const products = [
 export default async function Cart() {
   const router = useRouter();
 
-  const getData = async () => {
-    try {
-      const item = await getCartItems(localStorage.getItem("userId") ?? "");
-      console.log("🚀 ~ file: page.tsx:75 ~ Cart ~ item:", item);
-    } catch (error) {}
-  };
-  useEffect(() => {
-    getData();
-  }, []);
+  // const getData = async () => {
+  //   try {
+  //     const item = await getCartItems(localStorage.getItem("userId") ?? "");
+  //     console.log("🚀 ~ file: page.tsx:75 ~ Cart ~ item:", item);
+  //   } catch (error) {}
+  // };
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   return (
     <div className="flex flex-col bg-white shadow-xl">
@@ -151,7 +151,7 @@ export default async function Cart() {
               type="button"
               className="ml-2 font-medium text-orange-600 hover:text-orange-500"
               onClick={() => {
-                router.push("/all-products");
+                router.push("/products");
               }}
             >
               Continue Shopping

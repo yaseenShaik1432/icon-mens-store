@@ -11,7 +11,7 @@ export default async function NotFound() {
       }}
     >
       <div>
-        <h2 className="text-2xl font-bold text-orange-600">Not Found</h2>
+        <h2 className="text-2xl font-bold text-orange-600">Page Not Found</h2>
         <p className="text-gray-500 text-xl">
           Could not find requested resource
         </p>

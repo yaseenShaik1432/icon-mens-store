@@ -48,18 +48,18 @@ const navigation = {
           id: "clothing",
           name: "Clothing",
           items: [
-            { name: "All", href: "/all-products" },
-            { name: "Shirts", href: "/all-products?category=shirts" },
-            { name: "Jeans", href: "/all-products?category=jeans" },
+            { name: "All", href: "/products" },
+            { name: "Shirts", href: "/products?category=shirts" },
+            { name: "Jeans", href: "/products?category=jeans" },
             {
               name: "Sweat Shirts",
-              href: "/all-products?category=sweat-shirts",
+              href: "/products?category=sweat-shirts",
             },
-            { name: "T-Shirts", href: "/all-products?category=t-shirts" },
-            { name: "Shorts", href: "/all-products?category=shorts" },
+            { name: "T-Shirts", href: "/products?category=t-shirts" },
+            { name: "Shorts", href: "/products?category=shorts" },
             {
               name: "Formal Pants",
-              href: "/all-products?category=formal-pants",
+              href: "/products?category=formal-pants",
             },
           ],
         },
@@ -101,8 +101,8 @@ const navigation = {
     },
   ],
   pages: [
-    { name: "About Us", href: "#" },
-    { name: "Contact Us", href: "#" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Contact Us", href: "/contact-us" },
   ],
 };
 
@@ -277,7 +277,7 @@ export default function Navbar() {
                   <div className="flow-root">
                     {isAdmin && (
                       <Link
-                        href="/admin/all-products"
+                        href="/admin/products"
                         className="-m-2 block p-2 font-medium text-gray-900"
                         onClick={() => setOpen(false)}
                       >
@@ -509,7 +509,7 @@ export default function Navbar() {
                   {isAdmin && (
                     <>
                       <Link
-                        href="/admin/all-products"
+                        href="/admin/products"
                         className="text-sm font-medium text-gray-700 hover:text-gray-800"
                       >
                         Admin
