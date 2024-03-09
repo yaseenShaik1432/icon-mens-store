@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="relative overflow-hidden bg-white">
-      <div className="pb-80 lg:mt-16">
+      <div className="mt-6 pb-80 lg:mt-16">
         <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg">
             <h1 className="text-4xl font-bold tracking-tight text-orange-600 sm:text-5xl">

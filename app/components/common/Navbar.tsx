@@ -1,5 +1,4 @@
 "use client";
-
 import { Fragment, useEffect, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import iconmenstore from "../../assets/images/iconmenstore.png";
@@ -18,7 +17,6 @@ import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { logout } from "@/app/services/auth";
-// import { getCookie } from "cookies-next";
 
 const navigation = {
   categories: [
@@ -100,10 +98,10 @@ const navigation = {
       ],
     },
   ],
-  pages: [
-    { name: "About Us", href: "/about-us" },
-    { name: "Contact Us", href: "/contact-us" },
-  ],
+  // pages: [
+  //   { name: "About Us", href: "/about-us" },
+  //   { name: "Contact Us", href: "/contact-us" },
+  // ],
 };
 
 function classNames(...classes: string[]) {
@@ -111,7 +109,6 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
-  const isAdmin = true;
   const token = true;
 
   const [open, setOpen] = useState(false);
@@ -259,7 +256,7 @@ export default function Navbar() {
                   </Tab.Panels>
                 </Tab.Group>
 
-                <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                {/* <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
                       <Link
@@ -271,20 +268,9 @@ export default function Navbar() {
                       </Link>
                     </div>
                   ))}
-                </div>
+                </div> */}
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  <div className="flow-root">
-                    {isAdmin && (
-                      <Link
-                        href="/admin/products"
-                        className="-m-2 block p-2 font-medium text-gray-900"
-                        onClick={() => setOpen(false)}
-                      >
-                        Admin
-                      </Link>
-                    )}
-                  </div>
                   {!token && (
                     <div className="flow-root">
                       <Link
@@ -297,16 +283,7 @@ export default function Navbar() {
                     </div>
                   )}
 
-                  <div className="flow-root">
-                    <Link
-                      href="/profile"
-                      className="-m-2 block p-2 font-medium text-gray-900"
-                      onClick={() => setOpen(false)}
-                    >
-                      My Profile
-                    </Link>
-                  </div>
-                  <div className="flow-root">
+                  {/* <div className="flow-root">
                     <button
                       type="button"
                       className="-m-2 block p-2 font-medium text-gray-900"
@@ -317,7 +294,7 @@ export default function Navbar() {
                     >
                       Logout
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -492,7 +469,7 @@ export default function Navbar() {
                     </Popover>
                   ))}
 
-                  {navigation.pages.map((page) => (
+                  {/* {navigation.pages.map((page) => (
                     <Link
                       key={page.name}
                       href={page.href}
@@ -500,26 +477,12 @@ export default function Navbar() {
                     >
                       {page.name}
                     </Link>
-                  ))}
+                  ))} */}
                 </div>
               </Popover.Group>
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {isAdmin && (
-                    <>
-                      <Link
-                        href="/admin/products"
-                        className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                      >
-                        Admin
-                      </Link>
-                      {/* <span
-                        className="h-6 w-px bg-gray-200"
-                        aria-hidden="true"
-                      />  it is | */}
-                    </>
-                  )}
                   {!token && (
                     <Link
                       href="/sign-in"
@@ -582,7 +545,7 @@ export default function Navbar() {
                     <button
                       type="button"
                       onClick={() => {
-                        // handleLogout();
+                        handleLogout();
                       }}
                       className="group -m-2 flex items-center p-2"
                     >

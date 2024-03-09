@@ -12,10 +12,10 @@ export async function GET(request: NextRequest) {
         httpOnly: true,
         expires: new Date(0),
       });
-      response.cookies.set("isAdmin", "", {
-        httpOnly: true,
-        expires: new Date(0),
-      });
+      // response.cookies.set("isAdmin", "", {
+      //   httpOnly: true,
+      //   expires: new Date(0),
+      // });
       return response;
     } else {
       return NextResponse.json(

@@ -5,7 +5,6 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import Image from "next/image";
 import { addToCart } from "@/app/services/cart";
-// import { getCookie } from "cookies-next";
 import { toast } from "react-toastify";
 import { ProductTypes } from "../utils/types";
 

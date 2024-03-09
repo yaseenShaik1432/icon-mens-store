@@ -6,6 +6,7 @@ import { connect } from "@/app/database/dbConfig";
 
 connect();
 
+// Login
 export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
@@ -47,11 +48,11 @@ export async function POST(request: NextRequest) {
       token,
     });
     response.cookies.set("token", token);
-    response.cookies.set("isAdmin", user.isAdmin, {
-      secure: true,
-      httpOnly: true,
-      sameSite: "none",
-    });
+    // response.cookies.set("isAdmin", user.isAdmin, {
+    //   secure: true,
+    //   httpOnly: true,
+    //   sameSite: "none",
+    // });
 
     return response;
   } catch (error: any) {
