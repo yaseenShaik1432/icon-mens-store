@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import Sidebar from "../components/common/Sidebar";
 
 export default function AdminLayout({
@@ -9,6 +10,7 @@ export default function AdminLayout({
     <>
       <Sidebar />
       {children}
+      <ToastContainer theme="colored" />
     </>
   );
 }

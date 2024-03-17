@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 import { getCookie } from "cookies-next";
 import Input from "@/app/components/input-fields/Input";
 import { ProductTypes } from "@/app/utils/types";
+import { useRouter } from "next/navigation";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -37,6 +38,7 @@ const initialData: ProductTypes = {
 
 export default function EditProduct({ params }: any) {
   const { productId } = params;
+  const router = useRouter();
   const [data, setData] = useState(initialData);
   const token = getCookie("token");
   // const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
@@ -64,7 +66,12 @@ export default function EditProduct({ params }: any) {
           "Content-Type": "application/json",
         },
       });
-      toast.success(response?.data?.message);
+      if (response.status === 200) {
+        toast.success(response?.data?.message);
+        setTimeout(() => {
+          router.push("/admin/products");
+        }, 2000);
+      }
     } catch (error: any) {
       toast.error(error?.response?.data?.error);
     }
