@@ -1,5 +1,7 @@
+import { ToastContainer } from "react-toastify";
 import "./globals.css";
 import type { Metadata } from "next";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
   title: "Icon Men's Store",
@@ -19,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className=" bg-white">
         <div className="min-h-screen h-full">{children}</div>
+        <ToastContainer autoClose={3000} theme="colored" />
       </body>
     </html>
   );

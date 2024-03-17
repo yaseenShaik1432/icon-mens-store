@@ -48,15 +48,7 @@ export async function POST(request: NextRequest) {
       token,
       userData: tokenData,
     });
-    response.cookies.set("token", token, {
-      httpOnly: true,
-      sameSite: "none",
-    });
-    // response.cookies.set("isAdmin", user.isAdmin, {
-    //   secure: true,
-    //   httpOnly: true,
-    //   sameSite: "none",
-    // });
+    response.cookies.set("token", token);
 
     return response;
   } catch (error: any) {

@@ -2,7 +2,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import iconmenstore from "../../assets/images/iconmenstore.png";
-import "react-toastify/dist/ReactToastify.css";
 import {
   ArrowLeftOnRectangleIcon,
   Bars3Icon,
@@ -14,7 +13,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Image from "next/image";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { logout } from "@/app/services/auth";
 
@@ -564,7 +563,6 @@ export default function Navbar() {
           </div>
         </nav>
       </header>
-      <ToastContainer theme="colored" />
     </div>
   );
 }

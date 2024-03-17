@@ -10,7 +10,6 @@ export default function AdminLayout({
     <>
       <Sidebar />
       {children}
-      <ToastContainer theme="colored" />
     </>
   );
 }

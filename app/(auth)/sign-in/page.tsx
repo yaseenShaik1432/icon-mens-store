@@ -2,9 +2,10 @@
 import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import Input from "@/app/components/input-fields/Input";
+import { ThreeDots } from "react-loader-spinner";
+import { useRouter } from "next/navigation";
 
 export default function SignIn() {
   const router = useRouter();
@@ -12,20 +13,24 @@ export default function SignIn() {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
+
   const onSignIn = async (e: any) => {
     try {
       e.preventDefault();
+      setLoading(true);
       const response = await axios.post("/api/auth/login", data);
-      if (response.status === 200) {
-        if (response.data?.userData?.isAdmin) {
+      if (response?.status === 200) {
+        if (response?.data?.userData?.isAdmin === true) {
           router.push("/admin/products");
         } else {
           router.push("/products");
         }
-        toast.success(response?.data?.message);
-        localStorage.setItem("userId", response.data.userId);
+        setLoading(false);
+        localStorage.setItem("userId", response?.data?.userId);
       }
     } catch (error: any) {
+      setLoading(false);
       toast.error(error?.response?.data?.error);
     }
   };
@@ -99,7 +104,18 @@ export default function SignIn() {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
               >
-                Sign in
+                {loading ? (
+                  <ThreeDots
+                    height="24"
+                    width="30"
+                    radius="9"
+                    color="white"
+                    ariaLabel="three-dots-loading"
+                    visible={true}
+                  />
+                ) : (
+                  "Sign in"
+                )}
               </button>
             </div>
 

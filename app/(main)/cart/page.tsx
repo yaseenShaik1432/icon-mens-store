@@ -1,8 +1,8 @@
-"use client";
+// "use client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useEffect } from "react";
-import { getCartItems } from "@/app/services/cart";
+// import { useEffect } from "react";
+// import { getCartItems } from "@/app/services/cart";
 
 const products = [
   {
