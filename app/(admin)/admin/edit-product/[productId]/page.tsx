@@ -95,9 +95,13 @@ export default function EditProduct({ params }: any) {
       if (data.category === "foot-wear") {
         setData({ ...data, sizes: sizeOptions.foot.sizes });
       } else if (
-        ["jeans", "joggers", "shorts", "casual-trousers"].includes(
-          data.subCategory
-        )
+        [
+          "jeans",
+          "joggers",
+          "shorts",
+          "casual-trousers",
+          "formal-pants",
+        ].includes(data.subCategory)
       ) {
         setData({ ...data, sizes: sizeOptions.bottom.sizes });
       } else if (
@@ -440,9 +444,13 @@ export default function EditProduct({ params }: any) {
                   </div>
                 </div>
                 {data?.category === "clothing" &&
-                ["jeans", "joggers", "shorts", "casual-trousers"].includes(
-                  data.subCategory
-                ) ? (
+                [
+                  "jeans",
+                  "joggers",
+                  "shorts",
+                  "casual-trousers",
+                  "formal-pants",
+                ].includes(data.subCategory) ? (
                   <>
                     {/* bottom sizes */}
                     <div className="sm:col-span-2">

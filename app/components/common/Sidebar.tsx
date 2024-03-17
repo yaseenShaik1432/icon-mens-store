@@ -14,8 +14,8 @@ export default function Sidebar() {
   const handleLogout = async () => {
     const result: any = await logout();
     if (result.status === 200) {
-      toast.success(result?.data?.message);
       router.push("/sign-in");
+      toast.success(result?.data?.message);
     } else {
       toast.error(result?.response?.data?.error);
     }
