@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
       subCategory,
     } = reqBody;
     const tokenData = await getDataFromToken(request);
-    if (tokenData.isAdmin) {
+    if (tokenData?.isAdmin) {
       const data = await Products.create({
         title,
         price,

@@ -66,7 +66,7 @@ export async function DELETE(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const userId = request.nextUrl.searchParams.get("userId");
+    const userId = request?.nextUrl?.searchParams?.get("userId");
 
     const AllCartItems = await Cart.find({
       userId,

@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest, { params }: any) {
   try {
     const tokenData = await getDataFromToken(request);
-    if (tokenData.isVerfied) {
+    if (tokenData?.isVerfied) {
       const { id } = params;
       const user = await User.findOne({ _id: id });
 

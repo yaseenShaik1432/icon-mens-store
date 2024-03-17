@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   try {
-    const toki = request.cookies.get("token");
+    const toki = request?.cookies?.get("token");
     if (toki) {
       const response = NextResponse.json({
         message: "Logout successful",

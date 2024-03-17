@@ -10,7 +10,6 @@ export default async function Product({ params }: any) {
 
   return (
     <>
-      Hello
       <ProductDetails data={data && data} id={id} />;
     </>
   );

@@ -23,7 +23,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
   try {
     const { id } = params;
     const tokenData = await getDataFromToken(request);
-    if (tokenData.isAdmin) {
+    if (tokenData?.isAdmin) {
       const product = await Products.findOne({ _id: id });
       if (!product) {
         return NextResponse.json(
@@ -63,7 +63,7 @@ export async function PUT(request: NextRequest, { params, body }: any) {
     } = reqBody;
 
     const tokenData = await getDataFromToken(request);
-    if (tokenData.isAdmin) {
+    if (tokenData?.isAdmin) {
       const updatedProduct = await Products.findOneAndUpdate(
         { _id: id },
         {

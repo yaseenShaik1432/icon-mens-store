@@ -33,7 +33,7 @@ function ProductDetails({ data, id }: { data: ProductTypes; id: any }) {
 
   return (
     <div className="bg-white">
-      <div className="">
+      <div className="py-12">
         {/* <nav aria-label="Breadcrumb">
           <ol
             role="list"
@@ -52,7 +52,7 @@ function ProductDetails({ data, id }: { data: ProductTypes; id: any }) {
         </nav> */}
 
         {/* Image gallery */}
-        <div className="mx-auto mt-10 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+        <div className="mx-auto max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           {data?.images?.map((each) => (
             <div
               key={each?.publicId}
