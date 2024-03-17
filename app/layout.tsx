@@ -19,8 +19,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" bg-white">
-        <div className="min-h-screen h-full">{children}</div>
+      <body className="min-h-screen h-full bg-white">
+        {children}
         <ToastContainer autoClose={3000} theme="colored" />
       </body>
     </html>
