@@ -3,8 +3,12 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Input from "@/app/components/input-fields/Input";
+import { useRouter } from "next/navigation";
+import { ThreeDots } from "react-loader-spinner";
 
 export default function SignUp() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     firstname: "",
     lastname: "",
@@ -15,11 +19,15 @@ export default function SignUp() {
   const handleSubmit = async (e: any) => {
     try {
       e.preventDefault();
+      setLoading(true);
       const response = await axios.post("/api/users", data);
       if (response.status === 200) {
         toast.success(response?.data?.message);
+        setLoading(false);
+        router.push("/sign-in");
       }
     } catch (error: any) {
+      setLoading(false);
       toast.error(error?.response?.data?.error);
     }
   };
@@ -141,9 +149,20 @@ export default function SignUp() {
         <div className="mt-10">
           <button
             type="submit"
-            className="block w-full rounded-md bg-orange-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+            className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
           >
-            submit
+            {loading ? (
+              <ThreeDots
+                height="24"
+                width="30"
+                radius="9"
+                color="white"
+                ariaLabel="three-dots-loading"
+                visible={true}
+              />
+            ) : (
+              "Sign up"
+            )}
           </button>
         </div>
       </form>
